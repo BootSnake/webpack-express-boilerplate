@@ -21,7 +21,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server"
+    "clean": "rm -rf dist/*",
+    "build": "npm run clean && webpack",
+    "start": "webpack-dev-server",
+    "start:exp" : "node ./server"
   },
   "repository": {
     "type": "git",
