@@ -1,13 +1,19 @@
 import 'index.html';
+import css from 'base.css';
 import _ from 'lodash/fp';
+import Vue from 'vue';
+import App from 'app.vue';
+
 
 const ready = new Promise((resolve) => {
-  window.addEventListener("load", resolve, {once: true}, false);
+  window.addEventListener("load", resolve, {once: false}, false);
 });
 
 const run = function () {
-    const app = document.getElementById('app');
-    app.innerHTML = 'HELLO Webpack-express-boilerplate';
+    const vm = new Vue({
+      el: '#app',
+      render: (h) => h(App)
+    });
 };
 
 ready.then(run);
