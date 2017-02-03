@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 
-const local = (p) => path.resolve(__dirname, p);;
+const local = (p) => path.resolve(__dirname, p);
 
 module.exports = function (env) {
   const nodeEnv = env && env.prod? 'production' : 'development';
@@ -82,8 +82,8 @@ module.exports = function (env) {
           test: /\.css$/,
           exclude: /node_modules/,
           loader: ExtractTextPlugin.extract({
-            fallbackLoader: "style-loader",
-            loader: "css-loader"
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader'
           }),
         }
       ]

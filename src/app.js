@@ -1,7 +1,7 @@
 import 'index.html';
 import 'base.css';
 import Vue from 'vue';
-import App from 'app.vue';
+import App from 'App.vue';
 
 const ready = new Promise((resolve) => {
   window.addEventListener('load', resolve, {

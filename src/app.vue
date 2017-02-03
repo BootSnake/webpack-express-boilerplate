@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
+    
   </div>
 </template>
 
@@ -9,10 +10,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to the VueJs'
-    }
+    };
   }
-}
+};
 </script>
-
-<style>
-</style>
