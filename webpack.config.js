@@ -35,7 +35,7 @@ module.exports = function (env) {
     context: local('src'),
 
     entry: {
-      app: './app.js',
+      app: ['babel-polyfill', './app.js'],
       vendor: ['lodash/fp', 'vue']
     },
 
@@ -74,9 +74,10 @@ module.exports = function (env) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader'
-          ],
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015']
+          }
         },
         {
           test: /\.css$/,
