@@ -47,7 +47,7 @@ module.exports = function (env) {
     module: {
       rules: [
         {
-          test: /\.html$/,
+          test: /\.(html)$/,
           exclude: /node_modules/,
           use: [
             {
@@ -86,18 +86,23 @@ module.exports = function (env) {
             fallbackLoader: 'style-loader',
             loader: 'css-loader'
           }),
+        },
+        {
+          test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+          loader: 'url-loader'
         }
       ]
     },
 
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.vue'],
+      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.vue', '.css', '.scss'],
       modules: [
         local('node_modules'),
         local('src')
       ],
       alias: {
-        vue: 'vue/dist/vue.js'
+        vue: 'vue/dist/vue.js',
+        bootstrap: local('node_modules/bootstrap/dist/css/bootstrap.css')
       }
     },
 
