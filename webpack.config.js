@@ -95,13 +95,14 @@ module.exports = function (env) {
     },
 
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.vue'],
+      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.vue', '.css', '.scss'],
       modules: [
         local('node_modules'),
         local('src')
       ],
       alias: {
-        vue: 'vue/dist/vue.js'
+        vue: 'vue/dist/vue.js',
+        backbone: local('node_modules/bootstrap/dist/css/bootstrap.css')
       }
     },
 
