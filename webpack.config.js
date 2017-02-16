@@ -47,7 +47,7 @@ module.exports = function (env) {
     module: {
       rules: [
         {
-          test: /\.html$/,
+          test: /\.(html)$/,
           exclude: /node_modules/,
           use: [
             {
@@ -102,7 +102,7 @@ module.exports = function (env) {
       ],
       alias: {
         vue: 'vue/dist/vue.js',
-        backbone: local('node_modules/bootstrap/dist/css/bootstrap.css')
+        bootstrap: local('node_modules/bootstrap/dist/css/bootstrap.css')
       }
     },
 
