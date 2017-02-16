@@ -86,6 +86,10 @@ module.exports = function (env) {
             fallbackLoader: 'style-loader',
             loader: 'css-loader'
           }),
+        },
+        {
+          test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+          loader: 'url-loader'
         }
       ]
     },
