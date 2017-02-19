@@ -1,14 +1,15 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('./config');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 3000;
+const isProduction = config.get('production');
+const port = config.get('port');
 
 const local = (p) => path.resolve(__dirname, p);
 
 module.exports = function (env) {
-  const nodeEnv = env && env.prod? 'production' : 'development';
+  const nodeEnv = env && env.prod ? 'production' : 'development';
 
   const plugins = [
     new webpack.optimize.CommonsChunkPlugin({
@@ -66,7 +67,7 @@ module.exports = function (env) {
             loaders: {
               css: ExtractTextPlugin.extract({
                 loader: 'css-loader',
-                fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
               })
             }
           }
@@ -83,7 +84,7 @@ module.exports = function (env) {
           test: /\.css$/,
           exclude: /node_modules/,
           loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
+            fallback: 'style-loader',
             loader: 'css-loader'
           }),
         },
@@ -116,7 +117,7 @@ module.exports = function (env) {
     devServer: {
       contentBase: 'dist',
       historyApiFallback: true,
-      port: port + 1,
+      port: port,
       compress: isProduction,
       inline: !isProduction,
       hot: !isProduction,
