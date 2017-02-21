@@ -1,0 +1,5 @@
+{
+  "production": true,
+  "port": 3001,
+  "proxyPort": 3000
+}
